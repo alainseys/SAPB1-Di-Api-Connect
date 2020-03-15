@@ -18,6 +18,14 @@ namespace DIAPI
                 if (connection.Connect() == 0)
                 {
                     Console.WriteLine("Connected to: " + connection.GetCompany().CompanyName);
+                    if (RetVal == 0)
+                    {
+                        Console.WriteLine("connected and can update");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Error: " + connection.GetCompany().GetLastErrorCode() + "-" + connection.GetCompany().GetLastErrorDescription());
+                    }
                     connection.GetCompany().Disconnect();
                 }
                 else
